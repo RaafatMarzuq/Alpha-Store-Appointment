@@ -1,8 +1,9 @@
 const { MongoClient, ServerApiVersion } = require('mongodb')
- 
+require('dotenv').config();
+
 // Replace the following with your Atlas connection string  
                                                                                                                                     
-// const url = "mongodb+srv://raafat:<password>@cluster0.phfg8.mongodb.net/?retryWrites=true&w=majority";
+const url = process.env.URL;
 const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
  
  // The database to use
@@ -59,15 +60,9 @@ const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology:
  
   
 }
-// const data = { 
-//     name: "מוניר",
-//     time: "13:20",
-//      dogtype: "הסקי" 
-// }
     
    
 //    addAppointment(data);
- 
 // 
 // run().catch(console.dir);
  module.exports.addAppointment= addAppointment;
