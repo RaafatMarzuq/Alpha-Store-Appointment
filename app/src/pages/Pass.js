@@ -1,21 +1,36 @@
 import './App.css';
 // import { Route ,Routes } from 'react-router-dom'
 // import React, {  useState } from "react";
+import  { useState, useEffect } from 'react'
+import axios from 'axios'
+
 import Input from '../components/InputBox/Input';
 import Button from '../components/Button/Button';
 // import AStore from './AStore';
 const Pass = ({logo })=> {
   
-  const onClick = async ()=> { 
-    // alert(" gfdgdgdg")
+  const [admins, setAdmin] = useState([])
+ 
+  useEffect( ()=> {
+      axios.get('https://appointment-api1.herokuapp.com/admins')
+      .then(res => {
+       
+      setAdmin(...res.data) 
+     
 
-    alert( " gfdgdgdg")
-    // var name=  document.getElementById("name").value;
-    // var password=  document.getElementById("password").value;
+      }).catch( err => {
+          console.log(err)
+      })
+  } , [])
+  const onClick = async ()=> { 
     
-    // (name === admins.name && password === admins.password) 
-    // ?  (window.location.href=`/admin`)  
-    // : alert("שם משתמש או סיסמה שגויים")  ;
+
+    var name=  document.getElementById("name").value;
+    var password=  document.getElementById("password").value;
+    
+    (name === admins.name && password === admins.password) 
+    ?  (window.location.href=`/admin`)  
+    : alert("שם משתמש או סיסמה שגויים")  ;
    
 }
 

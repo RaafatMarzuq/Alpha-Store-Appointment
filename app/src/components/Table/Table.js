@@ -11,8 +11,13 @@ function Table() {
   useEffect( ()=> {
       axios.get('https://appointment-api1.herokuapp.com/appointment')
       .then(res => {
-          console.log(res.data)
-          setAppointment(res.data)
+        
+        res.data ? setAppointment(res.data) 
+        : setAppointment({ 
+          name : "אין תורים היום",
+          dogtype :"" ,
+          time : ""
+        })
       }).catch( err => {
           console.log(err)
       })
@@ -28,13 +33,12 @@ function Table() {
           <th>שם</th>
         </tr>
         </thead>
-        {appointment.map((val, key) => {
+        { appointment.map((val, key) => {
           return (
             <tr key={key}>
-              <td>{val.dogtype ? val.dogtype: "" }</td>
-              <td>{val.time ? val.time : ""}</td>
-              <td>{val.name ? val.name : "אין תורים היום"}</td>
-
+              <td>{val.dogtype }</td>
+              <td>{val.time }</td>
+              <td>{val.name }</td>
             </tr>
           )
         })}

@@ -1,6 +1,6 @@
 import './style.css'
 import axios from 'axios';
-import  { useState,  } from 'react'
+import  { useState  } from 'react'
 
 const Button = ({id,href,buttonName ,onClick}) =>{
        const [appointment, setAppointment] = useState([])
@@ -26,7 +26,7 @@ const Button = ({id,href,buttonName ,onClick}) =>{
                         }
                 )
 
-             await axios.post('https://appointment-api1.herokuapp.com/appointment',appointment ).then(res => {
+                await axios.post('https://appointment-api1.herokuapp.com/appointment',appointment ).then(res => {
               !res.data.note ?   alert("התור נקבע\nתודה רבה ") : alert(res.data.note)
               
                 })

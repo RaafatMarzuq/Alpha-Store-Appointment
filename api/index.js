@@ -20,18 +20,19 @@ app.get('/', async (req,res)=>{
     }
      res.send(note);
 })
-app.get('/admins', async (req,res)=>{
-    const data =await mongodb.getData('admins')
-    console.log("herererererer")
-    const note = {
-        note : "No admins today" 
-    }
-    !data ? res.send(note): res.status(200).send(data);
-})
+
 app.get('/appointment', async (req,res)=>{
     const data =await mongodb.getData('appointment')
     const note = {
         note : "No appointments today" 
+    }
+    !data ? res.send(note): res.send(data); 
+    
+})
+app.get('/admins', async (req,res)=>{
+    const data =await mongodb.getData('admins')
+    const note = {
+        note : "No admins " 
     }
     !data ? res.send(note): res.send(data); 
     
