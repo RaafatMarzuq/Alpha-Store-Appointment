@@ -1,7 +1,6 @@
 import './App.css';
 // import { Route ,Routes } from 'react-router-dom'
 // import React, {  useState } from "react";
-import DataFetching from '../fetchAdmins'
 import Input from '../components/InputBox/Input';
 import Button from '../components/Button/Button';
 // import AStore from './AStore';
@@ -10,8 +9,7 @@ const Pass = ({logo })=> {
   const onClick = async ()=> { 
     // alert(" gfdgdgdg")
 
-    let data = await DataFetching();
-    alert(data + " gfdgdgdg")
+    alert( " gfdgdgdg")
     // var name=  document.getElementById("name").value;
     // var password=  document.getElementById("password").value;
     

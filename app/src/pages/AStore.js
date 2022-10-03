@@ -7,6 +7,8 @@ const AStore = ({logo})=> {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <p className='textA'>Alpha Store</p>
+        
        <div className='input-container' >
 
         <Table/>

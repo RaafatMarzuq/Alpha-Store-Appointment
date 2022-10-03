@@ -2,44 +2,38 @@ import './style.css';
 import  { useState, useEffect } from 'react'
 import axios from 'axios'
 
-// function DataFetching(){
-   
-   
-// }
 
-// const data = [
-//   { name: "סאמר", time: "12:25", dogtype: "רועה גרמני" },
-//   { name: "מוניר", time: "13:20", dogtype: "הסקי" },
-//   { name: "אבי", time: "17:00", dogtype: "צ'ואוא"},
- 
-// ]
   
 function Table() {
-
+  const [loading, setLoading] = useState(0)
   const [appointment, setAppointment] = useState([])
+  setTimeout(()=> setLoading(loading=> loading+1),1800000)
   useEffect( ()=> {
-      axios.get( 'http://localhost:3001/appointment')
+      axios.get('https://appointment-api1.herokuapp.com/appointment')
       .then(res => {
           console.log(res.data)
           setAppointment(res.data)
       }).catch( err => {
           console.log(err)
       })
-  } , [])
+  } , [loading])
   return (
-    <div className="Table">
+    
+    <div className="Table">      
       <table>
+        <thead>
         <tr>
           <th>סוג כלב</th>
           <th>שעה</th>
           <th>שם</th>
         </tr>
+        </thead>
         {appointment.map((val, key) => {
           return (
             <tr key={key}>
-              <td>{val.dogtype}</td>
-              <td>{val.time}</td>
-              <td>{val.name}</td>
+              <td>{val.dogtype ? val.dogtype: "" }</td>
+              <td>{val.time ? val.time : ""}</td>
+              <td>{val.name ? val.name : "אין תורים היום"}</td>
 
             </tr>
           )
