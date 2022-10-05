@@ -11,7 +11,7 @@ let DATE = year + "-" + month + "-" + day;
 
 // Replace the following with your Atlas connection string  
                                                                                                                                     
-const url = "";
+const url = process.env.URL;
 const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
  // The database to use
