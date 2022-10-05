@@ -13,16 +13,19 @@ const Home = ({logo})=> {
   return (
 
     <div className="App">
-      <header className="App-header">
+     
+      <body className="App-header">
+        <div>
         <img src={logo} className="App-logo" alt="logo" />
+      </div>
        <div className='input-container' >
 
-        <Button  id='users' href='/users' buttonName='לקוח'  onClick={onUserClick}/>
-        <Button  id='admin' href='/pass' buttonName= 'אדמין' onClick={onAdminClick} />
+        <Button  id='users'  buttonName='לקוח'  onClick={onUserClick}/>
+        <Button  id='admin'  buttonName= 'אדמין' onClick={onAdminClick} />
          
         </div>
         
-      </header>
+      </body>
        
     </div>
   );

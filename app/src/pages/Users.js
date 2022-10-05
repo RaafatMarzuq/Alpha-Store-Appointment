@@ -6,7 +6,7 @@ function Users({logo}) {
   
   return (
     <div className="App">
-      <header className="App-header">
+      <body className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
 
        <div className='input-container' >
@@ -14,9 +14,9 @@ function Users({logo}) {
         <Input id="PhoneNumber" type="text" title="DogName" text= ' מס טלפון' />
         <Input id="Date" type="datetime-local" title="DogName" text= ' תאריך ' />
         <Input id="DogType" type="text" title="DogName" text= ' סוג הכלב  ' />
-        <Button id= 'user' href='' buttonName='קביעת תור' />
+        <Button id= 'user'  buttonName='קביעת תור' />
         </div>
-      </header>
+      </body>
      
     </div>
   );

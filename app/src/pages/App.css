@@ -9,6 +9,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
+    
     animation: App-logo-spin infinite 20s linear;
   }
 }
@@ -38,6 +39,7 @@
 }
 
 .input-container{
+    padding-top: 30px;
     display: grid;
     row-gap: 10px;
 }

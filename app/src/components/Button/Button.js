@@ -1,10 +1,20 @@
 import './style.css'
 import axios from 'axios';
-import  { useState  } from 'react'
+import  { useEffect, useState  } from 'react'
 
-const Button = ({id,href,buttonName ,onClick}) =>{
+const Button = ({id,buttonName ,onClick}) =>{
        const [appointment, setAppointment] = useState([])
-
+        // const [isLoading,setIsLoading]=useState(false)
+       useEffect( ()=>{
+        async function fetchData(){
+                await axios.post('https://appointment-api1.herokuapp.com/appointment',appointment ).then(res => {
+                                !res.data.note ?   alert("התור נקבע\nתודה רבה ") : alert(res.data.note)
+                                
+                                })
+        }
+        fetchData();
+       },[appointment])
+       
         const onUserClick =async ()=>{
                 let Name,Date,PhoneNumber,DogType;
 
@@ -16,7 +26,7 @@ const Button = ({id,href,buttonName ,onClick}) =>{
                 let time = Date[1]
                 Date=Date[0]
                 if(Name && Date && time && PhoneNumber && DogType){
-                setAppointment(
+                 setAppointment(
                         {
                                 name : Name,
                                 phoneNumber:PhoneNumber,
@@ -25,11 +35,9 @@ const Button = ({id,href,buttonName ,onClick}) =>{
                                 dogtype: DogType
                         }
                 )
+                // setIsLoading(true)
 
-                await axios.post('https://appointment-api1.herokuapp.com/appointment',appointment ).then(res => {
-              !res.data.note ?   alert("התור נקבע\nתודה רבה ") : alert(res.data.note)
-              
-                })
+             
                 
 
                 }else {

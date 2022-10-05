@@ -39,16 +39,16 @@ const Pass = ({logo })=> {
   return (
 
     <div className="App">
-      <header className="App-header">
+      <body className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
            
        <div className='input-container' >
 
         <Input id='name'  type="text"  title="name" text="שם משתמש"/>
         <Input id='password'  type="password"  title="password" text="סיסמה"/>
-        <Button id="pass" href="/admin" buttonName='כניה' onClick={onClick} />
+        <Button id="pass" buttonName='כניה' onClick={onClick} />
         </div>
-      </header>
+      </body>
       
          
           </div>

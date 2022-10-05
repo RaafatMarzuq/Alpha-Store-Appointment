@@ -39,16 +39,22 @@ app.get('/admins', async (req,res)=>{
 })
 app.post('/appointment', async (req,res)=>{
     
-    if(req.body){
+    if(!isEmpty(req.body)){
+    console.log("res.body = ",req.body)
      let ans = await  mongodb.addAppointment(req.body)
-     console.log(ans)
+     
      if(ans) {
         res.status(200).send(req.body)
-     }else   res.status(200).send({note : "התור הזה לא פנוי ,תנסה לקבוע בזמן שונה"})
+     }else  {
+        res.status(200).send({note : "התור הזה לא פנוי ,תנסה לקבוע בזמן שונה"})
+     } 
 
       
    }
    
 })
+function isEmpty(object) {  
+    return Object.keys(object).length === 0
+  }
 
 app.listen(PORT, () => console.log(`Listening Socket on http://localhost:${PORT}`));

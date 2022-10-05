@@ -11,7 +11,7 @@ let DATE = year + "-" + month + "-" + day;
 
 // Replace the following with your Atlas connection string  
                                                                                                                                     
-const url = process.env.URL;
+const url = "";
 const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
  // The database to use
@@ -25,23 +25,25 @@ const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology:
 
 
          const col = db.collection("appointment");                                                                                                                                                            
-         const query= {};
+         const query= {date:personDocument.date};
          let data =  await col.find(query).toArray();
          let bool = true;
-
-         data.filter( (appointment) =>{appointment.date === personDocument.date})
+        console.log(personDocument.time)
          let time= personDocument.time.split(":")
          time = parseInt(time[0])*60 + parseInt(time[1])
+        if(data){
+            
          data.forEach((appointment) =>{
+                
                 let appointment_time = appointment.time.split(":");
                 appointment_time = parseInt(appointment_time[0])*60 + parseInt(appointment_time[1]);
                 let dt =(time-appointment_time);
-
+                console.log("dt = ",dt)
                 if( (  Math.abs(dt) >= 0) &&  (Math.abs(dt)<= 30)  ){
                  bool =false ;
              }
          })
-         // Insert a single document, wait for promise so we can read it back
+        }
         if(bool){
             const p = await col.insertOne(personDocument);
             console.log("inserted")
@@ -127,7 +129,7 @@ async function updateDB(){
         // await client.close();
       
         //update every one hour
-        // setTimeout(updateDB,3600000  );
+        setTimeout(updateDB,3600000  );
     }
         
 }

@@ -5,17 +5,19 @@ const AStore = ({logo})=> {
   return (
 
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className='textA'>Alpha Store</p>
-        
+       
+      <body className="App-header">
+      
+        <img src={logo} className="App-logo" alt="logo" /> 
+        <h4 className='textA'>Alpha Store</h4>
+      
        <div className='input-container' >
 
         <Table/>
          
         </div>
         
-      </header>
+      </body>
        
     </div>
   );
