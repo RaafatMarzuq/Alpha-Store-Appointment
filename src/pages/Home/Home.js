@@ -4,10 +4,10 @@ import Button from '../../components/Button/Button';
 
 const Home = ({logo})=> {
    const onUserClick = ()=>{
-     window.location.href='/users';
+     window.location.href=process.env.PUBLIC_URL +'/users';
    }
    const onAdminClick = ()=>{
-     window.location.href='/pass';
+     window.location.href= process.env.PUBLIC_URL +'/pass';
    }
 
   return (
