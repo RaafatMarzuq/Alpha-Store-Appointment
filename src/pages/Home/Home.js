@@ -2,7 +2,7 @@ import './Home.css';
 
 import Button from '../../components/Button/Button';
 import {useNavigate} from "react-router-dom"
-
+import React, { useEffect,useState } from 'react';
 
 const Home = ({logo})=> {
   const [toPage,setToPage] = useState("")
