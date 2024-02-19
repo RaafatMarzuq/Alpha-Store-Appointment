@@ -46,7 +46,7 @@ const Pass = ({logo })=> {
        <div className='input-container2' >
         <Input id='name'  type="text"  title="name" text="שם משתמש"/>
         <Input id='password'  type="password"  title="password" text="סיסמה"/>
-        <Button id="pass" buttonName='כניה' onClick={onClick} />
+        <Button id="pass" buttonName='כניסה' onClick={onClick} />
         </div> 
          </div>
       </body>

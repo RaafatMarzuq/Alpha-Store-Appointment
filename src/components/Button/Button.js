@@ -50,7 +50,7 @@ const Button = ({id,buttonName ,onClick}) =>{
                  
         //  } , [])
         return (
-        <div  >
+        <div className='btn' >
         <button  className="button"  onClick={id === 'user' ? onUserClick : onClick} type="button"  >{buttonName}</button>
         </div>
         )
