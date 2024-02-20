@@ -9,7 +9,7 @@ function Table() {
   const [appointment, setAppointment] = useState([])
   setTimeout(()=> setLoading(loading=> loading+1),1800000)
   useEffect( ()=> {
-      axios.get('https://appointment-api1.herokuapp.com/appointment')
+      axios.get('https://appointment-api1-0ec8b494fd57.herokuapp.com/appointment')
       .then(res => {
         
         res.data ? setAppointment(res.data) 

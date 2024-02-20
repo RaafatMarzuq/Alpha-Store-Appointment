@@ -12,7 +12,7 @@ const Pass = ({logo })=> {
   const [admins, setAdmin] = useState([])
  
   useEffect( ()=> {
-      axios.get('https://appointment-api1.herokuapp.com/admins')
+      axios.get('https://appointment-api1-0ec8b494fd57.herokuapp.com/admins')
       .then(res => {
        
       setAdmin(...res.data) 
