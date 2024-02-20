@@ -3,14 +3,15 @@ import './Pass.css';
 // import React, {  useState } from "react";
 import  { useState, useEffect } from 'react'
 import axios from 'axios'
-
+import {useNavigate} from "react-router-dom"
 import Input from '../../components/InputBox/Input';
 import Button from '../../components/Button/Button';
 // import AStore from './AStore';
+
 const Pass = ({logo })=> {
   
   const [admins, setAdmin] = useState([])
- 
+  let navigate = useNavigate();
   useEffect( ()=> {
       axios.get('https://appointment-api1-0ec8b494fd57.herokuapp.com/admins')
       .then(res => {
@@ -23,13 +24,13 @@ const Pass = ({logo })=> {
       })
   } , [])
   const onClick = async ()=> { 
-    
+   
 
     var name=  document.getElementById("name").value;
     var password=  document.getElementById("password").value;
     
     (name === admins.name && password === admins.password) 
-    ?  (window.location.href=`/admin`)  
+    ?  (navigate(`/admin`))  
     : alert("שם משתמש או סיסמה שגויים")  ;
    
 }
